@@ -16,4 +16,10 @@
     <string name="third_description">A layout composable that places its children in a horizontal sequence.</string>
     <string name="fourth_title">Column composable</string>
     <string name="fourth_description">A layout composable that places its children in a vertical sequence.</string>
+    //Business Card App
+    <string name="full_name">Jennifer Doe</string>
+    <string name="title">Android Developer Extraordinaire</string>
+    <string name="contact_email">jen.doe@android.com</string>
+    <string name="contact_phone">+11 (123) 444 555 666</string>
+    <string name="contact_website">"@AndroidDev"</string>
 </resources>
