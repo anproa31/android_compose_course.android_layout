@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -174,22 +175,18 @@ fun BusinessCardApp() {
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .background(color = LightGreen),
+            .background(color = LightGreen)
+            .padding(top = 250.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    )
-    {
+    ) {
         Introduction(
             imagePainter = painterResource(id = R.drawable.android_logo),
-            full_name = stringResource(
-                id = R.string.full_name
-            ),
+            full_name = stringResource(id = R.string.full_name),
             title = stringResource(id = R.string.title)
         )
-        Spacer(modifier = Modifier.padding(top = 400.dp))
+        Spacer(modifier = Modifier.padding(top = 200.dp))
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         ) {
             Contact(
                 icon = painterResource(id = R.drawable.ic_baseline_local_phone_24),
@@ -215,21 +212,27 @@ fun BusinessCardApp() {
 
 @Composable
 private fun Introduction(imagePainter: Painter, full_name: String, title: String) {
-    Image(
-        painter = imagePainter, contentDescription = null,
+    Column(
         modifier = Modifier
-            .height(120.dp)
-            .width(120.dp)
-            .background(Dark_Green),
-
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Image(
+            painter = imagePainter, contentDescription = null,
+            modifier = Modifier
+                .height(120.dp)
+                .width(120.dp)
+                .background(Dark_Green),
         )
-    Text(
-        text = full_name,
-        color = Color.Black,
-        modifier = Modifier.padding(top = 10.dp, bottom = 15.dp),
-        fontSize = 40.sp
-    )
-    Text(text = title, color = Green, fontWeight = FontWeight.Bold)
+        Text(
+            text = full_name,
+            color = Color.Black,
+            modifier = Modifier.padding(top = 10.dp, bottom = 15.dp),
+            fontSize = 40.sp
+        )
+        Text(text = title, color = Green, fontWeight = FontWeight.Bold)
+    }
 }
 
 @Composable
@@ -238,7 +241,7 @@ private fun Contact(icon: Painter, contact: String) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = 10.dp, start = 80.dp),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(painter = icon, contentDescription = null)
         Text(text = contact, modifier = Modifier.padding(start = 25.dp), color = Dark_Green)
